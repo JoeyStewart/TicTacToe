@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     text-align: center;
+    font-size: 50px
 }
 
 .center-container {
@@ -16,7 +17,7 @@ body {
     align-items: center; 
     height: 100vh; 
     padding: 20px;
-    background-color: #fff;
+    background-color: #ea8d1a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -24,13 +25,27 @@ body {
     width: 30%; 
     height: 100%;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #10f6f2;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 37px
 }
 
 .center-inner-container {
     margin: 0;
     padding: 0;
+}
+
+.right-container {
+    width: 30%;
+    height: 100%; 
+    padding: 10px;
+    background-color: #17cc0deb;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* font-size: 50px */
+}
+
+.emoji {
+    font-size: 36px;
 }
 
 .game-board {
@@ -52,10 +67,11 @@ body {
     cursor: pointer;
 }
 
-.right-container {
+/* .right-container {
     width: 30%;
     height: 100%; 
     padding: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+} */
+
