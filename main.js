@@ -1,5 +1,5 @@
 // Query Selectors
-var gameChip = document.querySelector("[data-cell")
+var gameChip = document.querySelector(".move")
 
 // Event Listeners
 gameChip.addEventListener("click", gameChipSelect);
@@ -21,17 +21,18 @@ var winCombo = [
 // Functions
 
 // //Function: Recognize Click on Grid
-function gameChipSelect(move) {
-    if(!move.innerHTML){
-        move.classList.add(emoji)
+function gameChipSelect(event) {
+    var cell = event.target;
+    if(!cell.innerText){
+        if(currentPlayer === 'player1') 
+            cell.innerText = player1;
+            currentPlayer = 'player2'
+    } else {
+        cell.innerText = player2;
+        currentPlayer = 'player1'
     }
 }
 
-gameChip.forEach(move => {
-    move.addEventListener('click', () => {
-        gameChipSelect(move);
-    });
-});
 
 
 //Function: Recognize a win condition on the grid. Ends game. 
