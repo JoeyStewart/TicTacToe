@@ -1,13 +1,15 @@
 // Query Selectors
-var gameChip = document.querySelector(".move")
+var gameChip = document.querySelectorAll(".move")
 
 // Event Listeners
-gameChip.addEventListener("click", gameChipSelect);
+gameChip.forEach(chip => {
+    chip.addEventListener("click", gameChipSelect);
+})
 
 //Variables
 var player1 = '🦑'
 var player2 = '🧙🏼‍♂️'
-var player1Start = false //Use to have player 1 always start game.
+var currentPlayer = 'player1'
 var winCombo = [
     [0,1,2],
     [3,4,5],
@@ -24,13 +26,15 @@ var winCombo = [
 function gameChipSelect(event) {
     var cell = event.target;
     if(!cell.innerText){
-        if(currentPlayer === 'player1') 
+        if(currentPlayer === 'player1'){ 
             cell.innerText = player1;
             currentPlayer = 'player2'
-    } else {
-        cell.innerText = player2;
-        currentPlayer = 'player1'
+        } else {
+            cell.innerText = player2;
+            currentPlayer = 'player1'
+        }
     }
+    console.log("Execute Please")
 }
 
 
