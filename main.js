@@ -41,7 +41,6 @@ function gameChipSelect(event) {
         }
         var winner = winConditionMet();
         updateWinnerMessage(winner);
-        // whoWon()
     }
 }
 
@@ -56,9 +55,9 @@ function winConditionMet(){
             gameChip[a].innerText === gameChip[b].innerText &&
             gameChip[a].innerText === gameChip[c].innerText){
                 if(gameChip[a].innerText === player1){
-                return '🦑'
+                return '🦑';
                 } else if(gameChip[a].innerText === player2) {
-                    return '🧙🏼‍♂️'
+                    return '🧙🏼‍♂️';
                 }
             }
         }
@@ -70,19 +69,24 @@ function updateWinnerMessage(winner) {
     var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
-    } else if(!winner){
+    } else if (isDraw()) {
+        playerWinner.textContent = 'Draw';
+    } else {
         playerWinner.textContent = `${currentPlayer}'s Turn!`;
     }
 }
 
 
+function isDraw() {
+    for (var i = 0; i < gameChip.length; i++) {
+        if (!gameChip[i].innerText) {
+            return false; 
+        }
+    }
+    return true; 
+}
 
-
-
-
-
-
-function whoWon(){
+function winnerTally(){
     var winner = winConditionMet()
         if(winner === 'player1'){
             return player1Score += 1
@@ -93,29 +97,12 @@ function whoWon(){
 
 // document.getElementById('player1-score').textContent = player1Score
 // document.getElementById('player2-score').textContent = player2Score
-//Function: gives a draw. Will be invoked in whoWon function. 
-// function isDraw(){
-//     for(var i = 0; i < gameChip[i]; i++){
-//         if(!gameChip[i].innerText){
-//         return false
-//         }
-//     }
-//     return true
-// }
 
-// function endGame(){
-//     if(!winConditionMet){
 
-//     }
-// }
 //Function: Create tally for number of wins for each player. Will continually
 //add tallies if game continues. If a draw no tally is created.
 //WinConditionMet will most likely be invoked here so that a tally will be displayed
 //in the appropriate player tracker.
-function winnerTally(){
-
-}
-
 
 //Function: Restart button? May add to restart game at anytime. Clearing all tallies tracked
 function gameRestart(){
