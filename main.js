@@ -39,9 +39,9 @@ function gameChipSelect(event) {
             cell.innerText = player2;
             currentPlayer = 'player1'
         }
-        var winner = winConditionMet()
-        updateWinnerMessage(winner)
-        whoWon()
+        var winner = winConditionMet();
+        updateWinnerMessage(winner);
+        // whoWon()
     }
     console.log("Execute Please")
 }
@@ -57,18 +57,20 @@ function winConditionMet(){
         if( gameChip[a].innerText &&
             gameChip[a].innerText === gameChip[b].innerText &&
             gameChip[a].innerText === gameChip[c].innerText){
-                var winner = currentPlayer === 'player1' ? '🦑' : '🧙🏼‍♂️';
-                document.getElementById('player-result').textContent = `${winner} Won!`;
-                return `${currentplayer.innerText} Won!`
+                if(gameChip[a].innerText === player1){
+                return '🦑'
+                } else if(gameChip[a].innerText === player2) {
+                    return '🧙🏼‍♂️'
+                } else {
+                    return "Draw"
+                }
             }
-        // // if(cell.innerText = winCombo[i])
-        // // return `${currentPlayer} won!`
-        // return null
-    }
+            }
+    return null  
 }
 //Function: displays on the screen which player won. If statement needed
 function updateWinnerMessage(winner) {
-    var playerWinner = document.getElementById('winner');
+    var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
     }
