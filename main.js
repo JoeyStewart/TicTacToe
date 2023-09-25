@@ -1,7 +1,6 @@
 // Query Selectors
 var gameChip = document.querySelectorAll(".move")
-// var player1Score = document.getElementById('player1-score').textContent
-// var player2Score = document.getElementById('player2-score').textContent
+
 
 // Event Listeners
 gameChip.forEach(cell => {cell.addEventListener("click", gameChipSelect)})
@@ -21,8 +20,8 @@ var winCombo = [
     [2,4,6]
 ]
 
-var player1Score = 0
-var player2Score = 0
+player1Score = `${0} Wins`
+player2Score = `${0} Wins`
 
 // Functions
 function gameChipSelect(event) {
@@ -56,11 +55,25 @@ function winConditionMet(){
     return  
 }
 
+function winnerTally(){
+    var player1ScoreTally = document.querySelector('player1-score')
+    var player2ScoreTally = document.querySelector('player2-score')
+
+    player1ScoreTally.textContent = `${player1Score} Wins`
+    player2ScoreTally.textContent = `${player2Score} Wins`
+}
+
 function updateWinnerMessage(winner) {
     console.log(winner)
     var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
+        if (winner === player1){
+            player1Score += 1
+        } else if(winner === player2){
+            player2Score += 1
+        }
+        winnerTally()
     } else if (isDraw()) {
         playerWinner.textContent = 'Draw';
     } else {
@@ -89,10 +102,10 @@ function restartGame(){
 
 function winnerTally(){
     var winner = winConditionMet()
-        if(winner === 'player1'){
-            return player1Score += 1
-        } else if(winner === 'player2'){
-            return player2Score += 1
+        if(winner === '🦑'){
+            player1Score += 1
+        } else if(winner === '🧙🏼‍♂️'){
+            player2Score += 1
         }
 }
 
