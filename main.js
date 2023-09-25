@@ -12,7 +12,7 @@ gameChip.forEach(chip => {
 //Variables
 var player1 = '🦑'
 var player2 = '🧙🏼‍♂️'
-var currentPlayer = 'player1'
+var currentPlayer = '🦑'
 var winCombo = [
     [0,1,2],
     [3,4,5],
@@ -32,18 +32,17 @@ var player2Score = 0
 function gameChipSelect(event) {
     var cell = event.target;
     if(!cell.innerText){
-        if(currentPlayer === 'player1'){ 
+        if(currentPlayer === '🦑'){ 
             cell.innerText = player1;
-            currentPlayer = 'player2'
+            currentPlayer = '🧙🏼‍♂️'
         } else {
             cell.innerText = player2;
-            currentPlayer = 'player1'
+            currentPlayer = '🦑'
         }
         var winner = winConditionMet();
         updateWinnerMessage(winner);
         // whoWon()
     }
-    console.log("Execute Please")
 }
 
 
@@ -52,7 +51,6 @@ function gameChipSelect(event) {
 //Needs ability to clear grid to continue another game.
 function winConditionMet(){
     for(var i =0; i < winCombo.length; i++){
-        console.log(winCombo[1])
         var [a,b,c] = winCombo[i]
         if( gameChip[a].innerText &&
             gameChip[a].innerText === gameChip[b].innerText &&
@@ -61,20 +59,28 @@ function winConditionMet(){
                 return '🦑'
                 } else if(gameChip[a].innerText === player2) {
                     return '🧙🏼‍♂️'
-                } else {
-                    return "Draw"
                 }
             }
-            }
-    return null  
+        }
+    return  
 }
 //Function: displays on the screen which player won. If statement needed
 function updateWinnerMessage(winner) {
+    console.log(winner)
     var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
+    } else if(!winner){
+        playerWinner.textContent = `${currentPlayer}'s Turn!`;
     }
 }
+
+
+
+
+
+
+
 
 function whoWon(){
     var winner = winConditionMet()
@@ -85,18 +91,23 @@ function whoWon(){
         }
 }
 
-document.getElementById('player1-score').textContent = player1Score
-document.getElementById('player2-score').textContent = player2Score
+// document.getElementById('player1-score').textContent = player1Score
+// document.getElementById('player2-score').textContent = player2Score
 //Function: gives a draw. Will be invoked in whoWon function. 
-function isDraw(){
+// function isDraw(){
+//     for(var i = 0; i < gameChip[i]; i++){
+//         if(!gameChip[i].innerText){
+//         return false
+//         }
+//     }
+//     return true
+// }
 
-}
+// function endGame(){
+//     if(!winConditionMet){
 
-function endGame(){
-    if(!winConditionMet){
-
-    }
-}
+//     }
+// }
 //Function: Create tally for number of wins for each player. Will continually
 //add tallies if game continues. If a draw no tally is created.
 //WinConditionMet will most likely be invoked here so that a tally will be displayed
