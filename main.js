@@ -4,7 +4,7 @@ var gameChip = document.querySelectorAll(".move")
 // var player2Score = document.getElementById('player2-score').textContent
 
 // Event Listeners
-gameChip.forEach(chip => {chip.addEventListener("click", gameChipSelect)})
+gameChip.forEach(cell => {cell.addEventListener("click", gameChipSelect)})
 
 //Variables
 var player1 = '🦑'
@@ -82,7 +82,7 @@ function isDraw() {
 }
 
 function restartGame(){
-    gameChip.forEach(chip => {chip.innerText = ''})
+    gameChip.forEach(cell => {cell.innerText = ''})
     currentPlayer = '🦑'
     updateWinnerMessage()
 }
