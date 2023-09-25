@@ -74,6 +74,11 @@ function updateWinnerMessage(winner) {
     } else {
         playerWinner.textContent = `${currentPlayer}'s Turn!`;
     }
+    if(winner || isDraw()){
+        setTimeout(function(){
+            restartGame()
+        }, 1200)
+    }
 }
 
 
@@ -84,6 +89,14 @@ function isDraw() {
         }
     }
     return true; 
+}
+
+function restartGame(){
+    gameChip.forEach(chip => {
+        chip.innerText = ''
+    })
+    currentPlayer = '🦑'
+    updateWinnerMessage()
 }
 
 function winnerTally(){
