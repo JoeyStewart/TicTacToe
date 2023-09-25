@@ -1,7 +1,8 @@
 // Query Selectors
 var gameChip = document.querySelectorAll(".move")
-document.getElementById('player1-score').textContent = player1Score
-document.getElementById('player2-score').textContent = player2Score
+// var player1Score = document.getElementById('player1-score').textContent
+// var player2Score = document.getElementById('player2-score').textContent
+// document.getElementById('player-result').textContent
 
 // Event Listeners
 gameChip.forEach(chip => {
@@ -49,18 +50,20 @@ function gameChipSelect(event) {
 
 //Function: Recognize a win condition on the grid. Ends game. 
 //Needs ability to clear grid to continue another game.
-function winConditionMet(event, player){
-    var cell = event.target
+function winConditionMet(){
     for(var i =0; i < winCombo.length; i++){
+        console.log(winCombo[1])
         var [a,b,c] = winCombo[i]
         if( gameChip[a].innerText &&
             gameChip[a].innerText === gameChip[b].innerText &&
             gameChip[a].innerText === gameChip[c].innerText){
-                return currentPlayer
+                var winner = currentPlayer === 'player1' ? '🦑' : '🧙🏼‍♂️';
+                document.getElementById('player-result').textContent = `${winner} Won!`;
+                return `${currentplayer.innerText} Won!`
             }
-        // if(cell.innerText = winCombo[i])
-        // return `${currentPlayer} won!`
-        return null
+        // // if(cell.innerText = winCombo[i])
+        // // return `${currentPlayer} won!`
+        // return null
     }
 }
 //Function: displays on the screen which player won. If statement needed
