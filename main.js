@@ -55,7 +55,7 @@ function winConditionMet(){
     return null
 }
 
-function winnerTally(){
+function increaseWins(){
     player1ScoreTally.textContent = `${player1Score} Wins`
     player2ScoreTally.textContent = `${player2Score} Wins`
 }
@@ -70,7 +70,7 @@ function updateWinnerMessage(winner) {
         } else if(winner === '🧙🏼‍♂️'){
             player2Score += 1
         }
-        winnerTally()
+        increaseWins()
     } else if (isDraw()) {
         playerWinner.textContent = 'Draw';
     } else {
@@ -93,7 +93,7 @@ function isDraw() {
 
 function restartGame(){
     gameChip.forEach(cell => {cell.innerText = ''})
-    currentPlayer = '🦑'
+    currentPlayer = currentPlayer
     updateWinnerMessage()
 }
 
