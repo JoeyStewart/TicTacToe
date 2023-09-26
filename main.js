@@ -89,7 +89,7 @@ function updateWinnerMessage(winner){
         }
         increaseWins()
     }else if (isDraw()){
-        playerWinner.textContent = 'Draw'
+        playerWinner.textContent = '☠️Draw☠️'
     }else{
         playerWinner.textContent = `${currentPlayer}'s Turn!`
     }
