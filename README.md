@@ -12,6 +12,7 @@ Open the page by typing git open index.html
 
 
 ## Demonstration
+![TicTacToe](https://github.com/JoeyStewart/TicTacToe/assets/140363136/136313f1-595e-424b-a2da-45687cec10fc)
 
 
 
