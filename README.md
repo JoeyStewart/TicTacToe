@@ -8,6 +8,10 @@ Fork and clone this repository to your preferred directory
 Type cd TicTacToe to move into the root directory
 Open the page by typing git open index.html
 
+## Demonstration
+
+
+
 ## Context:
 This was the final project for Module 1 at Turing Software and Design. This was also the last solo project to be completed for this module. We were given seven days to comlete this assignment. I prioritized other class priorities at the beginning of the project period and needed to attend to prior commitments that friday. I completed backbone of the HTML and CSS on Thursday and began the Javascript functions in earnest on Saturday. Working on them main functionality through Saturday to Monday night. With Tuesday being the day I dedicated for bug fixes and code cleanup. I had dedicated an approximate 30 to 35 hours to this project over those seven days. 
 
