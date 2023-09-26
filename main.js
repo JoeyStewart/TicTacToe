@@ -45,7 +45,7 @@ function playerSelect(event){
         if(currentPlayer === '🦑'){ 
             cell.innerText = player1
             currentPlayer = '🧙🏼‍♂️'
-        } else {
+        }else{
             cell.innerText = player2
             currentPlayer = '🦑'
         }
@@ -53,7 +53,7 @@ function playerSelect(event){
     updateWinnerMessage(winner)
     if(winner || isDraw()){
         disableCell()
-        }
+    }
         
     }
 }
@@ -61,12 +61,12 @@ function playerSelect(event){
 function winConditionMet(){
     for(var i =0; i < winCombo.length; i++){
         var [a,b,c] = winCombo[i]
-        if( gameChip[a].innerText &&
+        if(gameChip[a].innerText &&
             gameChip[a].innerText === gameChip[b].innerText &&
             gameChip[a].innerText === gameChip[c].innerText){
                 if(gameChip[a].innerText === player1){
                 return '🦑'
-                } else if(gameChip[a].innerText === player2){
+                }else if(gameChip[a].innerText === player2){
                     return '🧙🏼‍♂️'
                 }
             }
@@ -80,17 +80,17 @@ function increaseWins(){
 }
 
 function updateWinnerMessage(winner){
-    if (winner){
+    if(winner){
         playerWinner.textContent = `${winner} won!`
-        if (winner === '🦑'){
+        if(winner === '🦑'){
             player1Score += 1
-        } else if(winner === '🧙🏼‍♂️'){
+        }else if(winner === '🧙🏼‍♂️'){
             player2Score += 1
         }
         increaseWins()
-    } else if (isDraw()){
+    }else if (isDraw()){
         playerWinner.textContent = 'Draw'
-    } else {
+    }else{
         playerWinner.textContent = `${currentPlayer}'s Turn!`
     }
     if(winner || isDraw()){
@@ -99,8 +99,8 @@ function updateWinnerMessage(winner){
 }
 
 function isDraw(){
-    for (var i = 0; i < gameChip.length; i++){
-        if (!gameChip[i].innerText){
+    for(var i = 0; i < gameChip.length; i++){
+        if(!gameChip[i].innerText){
             return false
         }
     }
