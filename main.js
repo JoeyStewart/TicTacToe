@@ -8,8 +8,6 @@ var playerWinner = document.getElementById('player-result')
 
 // Event Listeners
 gameChip.forEach(cell => {cell.addEventListener("click", playerSelect)})
-
-// window.addEventListener('load', playerSelect)
 window.addEventListener('load', initializeGame)
 
 //Variables
@@ -32,7 +30,6 @@ player1Score = 0
 player2Score = 0
 
 // Functions
-
 function initializeGame(){
     player1ScoreTally.textContent = `${player1Score} Wins`
     player2ScoreTally.textContent = `${player2Score} Wins`
