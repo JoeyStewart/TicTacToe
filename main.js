@@ -8,8 +8,10 @@ var playerWinner = document.getElementById('player-result')
 
 // Event Listeners
 gameChip.forEach(cell => {cell.addEventListener("click", playerSelect)})
+
 // window.addEventListener('load', playerSelect)
 window.addEventListener('load', initializeGame)
+
 //Variables
 var player1 = '🦑'
 var player2 = '🧙🏼‍♂️'
@@ -96,7 +98,6 @@ function updateWinnerMessage(winner){
     }
 }
 
-
 function isDraw(){
     for (var i = 0; i < gameChip.length; i++){
         if (!gameChip[i].innerText){
@@ -106,9 +107,6 @@ function isDraw(){
     return true
 }
 
-function isGameOver(){
-    return gameOver
-}
 
 function disableCell(){
     gameChip.forEach(cell => {cell.removeEventListener('click', playerSelect)})
@@ -122,7 +120,7 @@ function restartGame(){
 }
 
 
-// A function that keeps track of which player’s turn it currently is(Seperate this)
+
 
 
 
