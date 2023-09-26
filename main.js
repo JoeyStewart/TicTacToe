@@ -25,6 +25,7 @@ var winCombo = [
     [2,4,6]
 ]
 
+
 player1Score = 0
 player2Score = 0
 
@@ -46,8 +47,12 @@ function playerSelect(event){
             cell.innerText = player2
             currentPlayer = '🦑'
         }
-        var winner = winConditionMet()
-        updateWinnerMessage(winner)
+    var winner = winConditionMet()
+    updateWinnerMessage(winner)
+    if(winner || isDraw()){
+        disableCell()
+        }
+        
     }
 }
 
@@ -101,10 +106,19 @@ function isDraw(){
     return true
 }
 
+function isGameOver(){
+    return gameOver
+}
+
+function disableCell(){
+    gameChip.forEach(cell => {cell.removeEventListener('click', playerSelect)})
+}
+
 function restartGame(){
     gameChip.forEach(cell => {cell.innerText = ''})
     currentPlayer = currentPlayer
     updateWinnerMessage()
+    gameChip.forEach(cell => {cell.addEventListener('click', playerSelect)})
 }
 
 
