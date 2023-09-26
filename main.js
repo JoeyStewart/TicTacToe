@@ -97,24 +97,4 @@ function restartGame(){
     updateWinnerMessage()
 }
 
-// function winnerTally(){
-//     var winner = winConditionMet()
-//         if(winner === '🦑'){
-//             player1Score += 1
-//         } else if(winner === '🧙🏼‍♂️'){
-//             player2Score += 1
-//         }
-// }
-
-// document.getElementById('player1-score').textContent = player1Score
-// document.getElementById('player2-score').textContent = player2Score
-
-//Functions may not be needed. May be invoked in winnerTally() function.
-function player1Score(){
-    
-}
-
-function player2Score(){
-
-}
 
