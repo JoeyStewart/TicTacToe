@@ -1,9 +1,13 @@
 // Query Selectors
-var gameChip = document.querySelectorAll(".move")
-var player1ScoreTally = document.querySelector('#player1-scores')
-var player2ScoreTally = document.querySelector('#player2-scores')
+var gameChip = document.querySelectorAll(".move");
+var player1ScoreTally = document.querySelector('#player1-scores');
+var player2ScoreTally = document.querySelector('#player2-scores');
+
+//Element by ID
+var playerWinner = document.getElementById('player-result');
+
 // Event Listeners
-gameChip.forEach(cell => {cell.addEventListener("click", gameChipSelect)})
+gameChip.forEach(cell => {cell.addEventListener("click", gameChipSelect)});
 
 //Variables
 var player1 = '🦑'
@@ -41,7 +45,7 @@ function gameChipSelect(event) {
 
 function winConditionMet(){
     for(var i =0; i < winCombo.length; i++){
-        var [a,b,c] = winCombo[i]
+        var [a,b,c] = winCombo[i];
         if( gameChip[a].innerText &&
             gameChip[a].innerText === gameChip[b].innerText &&
             gameChip[a].innerText === gameChip[c].innerText){
@@ -61,8 +65,6 @@ function increaseWins(){
 }
 
 function updateWinnerMessage(winner) {
-    console.log(winner)
-    var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
         if (winner === '🦑'){
@@ -96,5 +98,9 @@ function restartGame(){
     currentPlayer = currentPlayer
     updateWinnerMessage()
 }
+
+
+// A function that keeps track of which player’s turn it currently is(Seperate this)
+
 
 
