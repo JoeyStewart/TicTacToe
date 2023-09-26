@@ -1,10 +1,9 @@
 // Query Selectors
 var gameChip = document.querySelectorAll(".move")
-// var player1Score = document.getElementById('player1-score').textContent
-// var player2Score = document.getElementById('player2-score').textContent
-
+var player1ScoreTally = document.querySelector('#player1-scores')
+var player2ScoreTally = document.querySelector('#player2-scores')
 // Event Listeners
-gameChip.forEach(chip => {chip.addEventListener("click", gameChipSelect)})
+gameChip.forEach(cell => {cell.addEventListener("click", gameChipSelect)})
 
 //Variables
 var player1 = '🦑'
@@ -21,8 +20,8 @@ var winCombo = [
     [2,4,6]
 ]
 
-var player1Score = 0
-var player2Score = 0
+player1Score = 0
+player2Score = 0
 
 // Functions
 function gameChipSelect(event) {
@@ -53,7 +52,12 @@ function winConditionMet(){
                 }
             }
         }
-    return  
+    return null
+}
+
+function winnerTally(){
+    player1ScoreTally.textContent = `${player1Score} Wins`
+    player2ScoreTally.textContent = `${player2Score} Wins`
 }
 
 function updateWinnerMessage(winner) {
@@ -61,6 +65,12 @@ function updateWinnerMessage(winner) {
     var playerWinner = document.getElementById('player-result');
     if (winner) {
         playerWinner.textContent = `${winner} won!`;
+        if (winner === '🦑'){
+            player1Score += 1
+        } else if(winner === '🧙🏼‍♂️'){
+            player2Score += 1
+        }
+        winnerTally()
     } else if (isDraw()) {
         playerWinner.textContent = 'Draw';
     } else {
@@ -82,29 +92,9 @@ function isDraw() {
 }
 
 function restartGame(){
-    gameChip.forEach(chip => {chip.innerText = ''})
+    gameChip.forEach(cell => {cell.innerText = ''})
     currentPlayer = '🦑'
     updateWinnerMessage()
 }
 
-function winnerTally(){
-    var winner = winConditionMet()
-        if(winner === 'player1'){
-            return player1Score += 1
-        } else if(winner === 'player2'){
-            return player2Score += 1
-        }
-}
-
-// document.getElementById('player1-score').textContent = player1Score
-// document.getElementById('player2-score').textContent = player2Score
-
-//Functions may not be needed. May be invoked in winnerTally() function.
-function player1Score(){
-    
-}
-
-function player2Score(){
-
-}
 
